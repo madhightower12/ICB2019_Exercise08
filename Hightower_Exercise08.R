@@ -24,10 +24,11 @@ plot(x=MSU[,1],y=MSU[,3],type='l',xlab="Time",ylab="Score",col="green")
 +lines(x=uw[,1],y=uw[,3],col="red")
 # Part Two:
 
-#set up prompt
+# Read user input using readline()
+# And ensure that user input is an integer
 readinteger <- function()
 { 
-  n <- readline(prompt="Enter an integer: ")
+  n <- readline(prompt="Guess:")
   if(!grepl("^[0-9]+$",n))
   {
     return(readinteger())
@@ -35,12 +36,14 @@ readinteger <- function()
   return(as.integer(n))
 }
 
-# Generate random number and initialize guess
+# Generate random number using sample() and initialize guess
 
 number<-sample(1:100,1)
 guess <- -1
 
 #use while loop and if/else statements to generate output
+#based on relationship of guessed integer to goal number
+#using the readinteger function established above
 
 while(guess != number)
 { 
